@@ -1,0 +1,59 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://st.depositphotos.com/1592123/1713/i/950/depositphotos_17134307-stock-photo-vegetables-and-spices-vintage-border.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* display: flex; */
+    /* background-color: black; */
+}
+.detailContainer{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: rgba(8, 38, 46, 0.644);
+   color: rgb(236, 230, 230);
+   width:80%;
+   padding: 10px;
+   margin-top: 20px;
+   margin-bottom: 30px;
+   list-style: none;
+   border-radius: 8px;
+}
+
+.summary{
+    text-align: justify;
+}
+
+.loading{
+    font-size: 25px;
+    color: rgb(236, 230, 230);
+
+}
+
+.btn{
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    border-radius: 5px;
+    cursor: pointer;
+    /* padding:10px; */
+    font-size: 20px;
+    /* margin-left: 210px; */
+    border: none;
+    
+}
+
+
+.btn:hover {
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+} 
+
+.img{
+    width:240px;
+    height:200px;
+    border-radius: 8px;
+
+}

@@ -1,0 +1,164 @@
+.homeContainer{
+    position: absolute;
+    width: 100%;
+    /* background: #e9a5a5; */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-image: url('https://st.depositphotos.com/1155723/1217/i/600/depositphotos_12178221-stock-photo-notebook-for-recipes-and-spices.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.divNavBar{
+    /* position: fixed;
+    z-index: 1; */
+    top: 0;
+    width: 100%;
+}
+
+.navBar{
+    /* overflow: hidden; */
+    background-color: rgba(8, 38, 46, 0.644);
+    /* color: rgb(236, 230, 230); */
+    display: flex;
+    justify-content: space-around;
+}
+
+.navBar li {
+    float: left;
+    display: block;
+    color: rgb(236, 230, 230);
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.navBar input {
+    padding: 9px;
+    margin-top: 1px;
+    font-size: 17px;
+    border: none;
+    background-color: white;
+    color: rgb(94, 94, 94);
+    
+}
+
+.allElements{
+    height: 43px;
+    border: transparent;
+    color: rgb(236, 230, 230);
+
+    background-color: transparent;
+    font-size: medium;
+    border-radius: 8px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.allElements:hover{
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+}
+
+.elements select{
+    cursor: pointer;
+    padding: 7px 0px;
+    height: 42px;
+    font-size: 1em;
+    color: rgb(94, 94, 94);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.elements select:hover{
+    background: rgb(236, 230, 230);;
+    color: rgba(74, 59, 207, 0.644);
+    border-color: rgb(71, 71, 71 );
+}
+
+.elements select option:hover{
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+}
+
+.container {
+    display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ padding-left: 12%;
+ padding-right: 12%;
+ filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+.cardText{
+    text-decoration: none;
+    color: black;
+}
+
+.cardHome{
+    margin: 0 5px 0 5px;
+}
+
+.btn{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 8px;
+}
+
+.previous{
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    border-radius: 5px;
+    cursor: pointer;
+    /* padding:10px; */
+    font-size: 20px;
+    /* margin-left: 210px; */
+    border: none;
+}
+
+.previous:hover {
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+} 
+
+.next{
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    border-radius: 5px;
+    cursor: pointer;
+    /* padding:10px; */
+    font-size: 20px;
+    /* margin-left: 210px; */
+    border: none;
+}
+
+.next:hover {
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+} 
+
+.mainTitle{
+    /* width: 25%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgba(8, 38, 46, 0.644); */
+    /* color: rgb(236, 230, 230); */
+    /* border-radius: 8px; */
+    /* cursor: pointer; */
+    /* padding: 10px; */
+    font-size: 30px;
+    /* margin-left: 50%; */
+}
+
+.title{
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+        border-radius: 8px;
+        width: 30%;
+        height: 95px;
+
+}

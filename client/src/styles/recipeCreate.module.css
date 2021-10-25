@@ -1,0 +1,87 @@
+.mainContainer{
+    background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/artear/BUEOOO2RQQVLMWMJUG7DGMP5NU.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    width:50%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+    
+.formLabel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formLabel label{
+    font-size:large;
+    font-family: 'Roboto' thin  italic;
+    
+}
+
+.removeBtn{
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    border-radius: 5px;
+    cursor: pointer;
+    /* padding:10px; */
+    font-size: 14px;
+    /* margin-left: 210px; */
+    border: none;
+}
+
+.removeBtn:hover {
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+} 
+
+.formBtn {
+    text-decoration: none;
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    font-size: 20px;
+    padding: 15px;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.formBtn:hover {
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+} 
+
+.btn{
+    background-color: rgba(8, 38, 46, 0.644);
+    color: rgb(236, 230, 230);
+    border-radius: 5px;
+    cursor: pointer;
+    /* padding:10px; */
+    font-size: 20px;
+    /* margin-left: 210px; */
+    border: none;
+    
+}
+
+
+.btn:hover {
+    background-color: white; 
+    color: rgba(74, 59, 207, 0.644);
+} 
