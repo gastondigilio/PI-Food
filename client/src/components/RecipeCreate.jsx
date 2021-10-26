@@ -20,7 +20,7 @@ export function validate(input) {
     }
     if (!input.puntuacion) {
         error.puntuacion = 'The score of the recipe is required';
-    } else if (isNaN(input.score) || input.score < 0 || input.score > 100) {
+    } else if (isNaN(input.puntuacion) || input.puntuacion < 0 || input.puntuacion > 100) {
         error.puntuacion = 'Must be a number between 0 and 100';
     }
 
@@ -169,7 +169,7 @@ export default function RecipeCreate() {
                     <br></br>
                 </div>
                 <div className={styles.formLabel}> 
-                    <label for='puntuacion'>Health Score: </label>
+                    <label for='puntuacion'> Score: </label>
                     <input onChange={handleChange} type="number" name="puntuacion" value={input.puntuacion} />
                     {error.puntuacion && <span className={styles.error}>{error.puntuacion}</span>}
                     <br></br>
