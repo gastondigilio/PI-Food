@@ -42,33 +42,23 @@ function rootReducer(state = initialState, action) {
                 detail: {}
             }
 
-        // case 'FILTER_BY_DIET':
-
-        //     const allRecipes = state.recipes
-        //     // console.log(allRecipes)
-        //     const filterDiet = action.payload === 'all' ? allRecipes : allRecipes.filter(el => (el.diets === action.payload));
-        //     // console.log(filterDiet())
-        //     // const filterDiet = allRecipes.filter( el=> (el.diet.find ( el => el.name.toLowerCase() === action.payload.toLowerCase())))
-
-        //     // allRecipes.filter( el=> (el.diets.find ( el => el.name.toLowerCase() === action.payload.toLowerCase())))
-
-        //     return {
-        //         ...state,
-        //         recipes: filterDiet
-        //         // recipes: action.payload === 'all' ? allRecipes : filterDiet
-        //     }
-        case "FILTER_BY_DIETS":
+        case 'FILTER_BY_DIETS':
             let filDiets = state.allRecipes;
+            console.log(filDiets, "antes")
             filDiets = filDiets.filter((d) => d.diets.includes(action.payload));
+            console.log(filDiets, "whole30")
             return {
                 ...state,
                 recipes: action.payload === "all" ? state.allRecipes : filDiets,
             };
 
+
+            
+
         // case 'FILTER_BY_DIETS':
 
-        //     const allRecipes = state.recipes;
-        //     const dietsFiltered = action.payload === 'all' ? allRecipes : allRecipes.filter(e => {
+        //     const filDiets = state.allRecipes;
+        //     const dietsFiltered = action.payload === 'all' ? filDiets : filDiets.filter(e => {
         //         if(typeof(e.diets) === 'string') return e.diets.includes(action.payload);
         //         if(Array.isArray(e.diets)){
         //             let temps = e.diets.map(e => e.name);
@@ -80,28 +70,6 @@ function rootReducer(state = initialState, action) {
         //     return{
         //         ...state,
         //         recipes: dietsFiltered
-        //     }
-
-
-
-        // case 'FILTER_RECIPES_BY_TYPE':
-        // return {
-        //     ...state,
-        //     recipes: action.payload
-        // }
-
-        // case "FILTER_ALPHABETICALLY":
-
-        //     const filterAlphabetic = action.payload === 'asc' ? state.recipes.sort((a, b) => {
-        //         return a.title > b.title ? 1 : -1;
-
-        //     }) : action.payload === 'desc' ? state.recipes.sort((a, b) => {
-        //         return a.title < b.title ? 1 : -1;
-
-        //     }) : state.recipes;
-        //     return {
-        //         ...state,
-        //         recipes: filterAlphabetic
         //     }
 
 

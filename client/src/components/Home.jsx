@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes, getDiets, filterByDiet, filterSortByName, sortByScore } from "../actions/index.js";
 import { Link } from 'react-router-dom';
 import Card from "./Card";
-import Pagination from "./Pagination";
 import NavBar from "./NavBar";
 import styles from "../styles/home.module.css";
 
@@ -13,7 +12,7 @@ export default function Home() {
     const dispatch = useDispatch() //utilizar esta constante e ir despachando mis acciones
     useEffect(() => {
         dispatch(getRecipes())
-    }, []) // nos traemos del estado las recetas cuando el componente se monta
+    }, [dispatch]) // nos traemos del estado las recetas cuando el componente se monta
 
     useEffect(() => {
         dispatch(getDiets())
@@ -27,27 +26,27 @@ export default function Home() {
     const [/*orden*/, setOrden] = useState('');
     console.log(allRecipes)
 
-    const recetasPorPagina = 9;
+    const recipesPerPage = 9;
 
 
     const [currentPage, setCurrentPage] = useState(1);
     // const [recipesPerPage, setRecipesPerPage] = useState(9);
-    const indexLastRecipe = currentPage * recetasPorPagina;
-    const indexFirstRecipe = indexLastRecipe - recetasPorPagina;
+    const indexLastRecipe = currentPage * recipesPerPage;
+    const indexFirstRecipe = indexLastRecipe - recipesPerPage;
     const recetasActuales = allRecipes.slice(indexFirstRecipe, indexLastRecipe);
     // console.log(recetasActuales)
 
 
     const pageNumbers = [];
 
-    for(let i=1;i<=Math.ceil(allRecipes.length /recetasPorPagina);i++){
+    for(let i=1;i<=Math.ceil(allRecipes.length /recipesPerPage);i++){
         pageNumbers.push(i);
     }
     console.log(pageNumbers, "buenass")
 
 
 
-    function paginaSiguiente() {
+    function nextPage() {
         if(currentPage === pageNumbers.length){
             setCurrentPage(1)
             console.log("entro al console")
@@ -57,20 +56,11 @@ export default function Home() {
     }
     console.log(currentPage, "holasdasd")
 
-    function paginaAnterior() {
+    function previousPage() {
         if (currentPage > 0) {
             setCurrentPage(currentPage + 1)
         }
     }
-
-
-
-    const pagedNumber = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    }
-
-
-
 
     function handleClick(e) { //creo esta funcion para 
         e.preventDefault(); //para que no se rompa
@@ -112,7 +102,8 @@ export default function Home() {
                         <select on onChange={handleSortByName}>
                             <option value='default' className={styles.allElements} hidden>Sort recipes by name</option>
                             <option value='asc'>A-Z</option>
-                            <option value='desc'>Z-A</option>// siempre hay que ponerle un value porque me permite acceder y despues poder preguntar al select. si el value es ascendente hace esto, si es desc hace esto. por eso hay que pasarle si o si un value
+                            <option value='desc'>Z-A</option>
+                             {/* siempre hay que ponerle un value porque me permite acceder y despues poder preguntar al select. si el value es ascendente hace esto, si es desc hace esto. por eso hay que pasarle si o si un value */}
                         </select>
                     </li>
                     <li className={styles.elements}>
@@ -141,15 +132,11 @@ export default function Home() {
                 <h1 className={styles.title}>Spoonacular</h1>
                 </div>
                 <div className={styles.btn}>
-                <button onClick={paginaAnterior} className={styles.previous}>Previous page</button>
-                <button onClick={paginaSiguiente} className={styles.next}>Next page</button>
+                <button onClick={previousPage} className={styles.previous}>Previous page</button>
+                <button onClick={nextPage} className={styles.next}>Next page</button>
                 </div>
                 
-                <Pagination
-                    recetasPorPagina={recetasPorPagina}
-                    allRecipes={allRecipes.length}
-                    pagedNumber={pagedNumber}
-                />
+
                <div className={styles.container}>
                 {recetasActuales?.map(el => {
                     return (
@@ -164,8 +151,8 @@ export default function Home() {
                 </div>
 
                 <div className={styles.btn}>
-                <button onClick={paginaAnterior} className={styles.previous}>Previous page</button>
-                <button onClick={paginaSiguiente} className={styles.next}>Next page</button>
+                <button onClick={previousPage} className={styles.previous}>Previous page</button>
+                <button onClick={nextPage} className={styles.next}>Next page</button>
                 </div>
                 <br></br>
 

@@ -20,10 +20,11 @@ router.get('/recipes', async (req, res) => {
   let recipesTotal = await getAllRecipes();
   if (name) {
     let recipeName = await recipesTotal.filter(e => e.name.toLowerCase().includes(name.toLowerCase())); // siempre buscar en minuscula para tener todos los datos iguales 
-    recipeName.length ? // si encontraste algo aca
-      res.status(200).send(recipeName) :
+    if(recipeName.length){
+      res.status(200).send(recipeName)
+    }else{
       res.status(404).send('The recipe was not found');
-    // console.log(name)
+    }
   } else {
     res.status(200).send(recipesTotal);
   }
@@ -36,15 +37,16 @@ router.get('/recipes/:id', async (req, res) => {
   const allRecipes = await getAllRecipes();
   if (id) {
     let recipesById = await allRecipes.filter(e => e.id == id);
-    recipesById.length ?
-      res.status(200).send(recipesById) :
+    if(recipesById.length){
+      res.status(200).send(recipesById)
+    }else{
       res.status(404).send('The ID you are looking for was not found.')
+    }
 
   }
 })
 
 router.get('/types', async (req, res) => {
-
 
   const allDiet = await Diet.findAll();
   if (allDiet.length === 0) {
@@ -95,11 +97,11 @@ router.post('/recipes', async (req, res) => {
     })
 
     const dietDb = await Diet.findAll({
-      where: { name: diets }
+      where: { name: diets},
     })
+    console.log(diets, "asdasdasdasd")
 
 
-    console.log(dietDb, "asdasdasd")
     recipeCreated.addDiet(dietDb)
     res.status(200).send('Receta creada con éxitos')
   } else {

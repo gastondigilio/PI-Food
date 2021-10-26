@@ -11,6 +11,8 @@ export default function Detail() {
     const history = useHistory();
     const {id} = useParams();
 
+    const detail = useSelector((state) => state.detail);
+
     useEffect(() => {
         dispatch(getDetail(id))
         return () => {
@@ -18,30 +20,15 @@ export default function Detail() {
         }
     }, [dispatch, id]);
 
-    // useEffect(() => {
-    //     dispatch(getDetail(props.match.params.id))
-    // }, [props.match.params.id,dispatch])
-
-    const detail = useSelector((state) => state.detail);
+    console.log(detail)
 
 
-    // console.log(detail[0].diets)
-    
-    // console.log("Diets: ", detail.diets);
-
-    function handle_button_home(e){
+    function handleButtonHome(e){
         e.preventDefault();
         dispatch(removeDetail());
         history.push('/home');
     }
 
-    
-
-    // const instructions = detail[0].pasoAPaso.map(instruction => {
-    //     return instruction.steps.map(step => step.step)
-    // }).flat()
-    
-    // console.log()
     return (
         <div className= {styles.mainContainer}>
             
@@ -73,7 +60,7 @@ export default function Detail() {
                 </div>
                 : <p className={styles.loading}>Loading, please wait</p>
             }
-        <button onClick={handle_button_home} className={styles.btn}>Home</button>
+        <button onClick={handleButtonHome} className={styles.btn}>Home</button>
         <br></br>
         </div>
     )

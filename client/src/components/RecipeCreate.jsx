@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getDiets, postRecipe, getRecipes } from '../actions/index.js';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "../styles/recipeCreate.module.css";
@@ -11,12 +11,12 @@ export function validate(input) {
     if (!input.name) {
         error.name = 'The name of the recipe is required';
     } else if (!/[a-zA-Z]{4}/.test(input.name)) {
-        error.name = 'The title must have only letters and at least 4 characters';
+        error.name = 'The name must have only letters and at least 4 characters';
     }
     if (!input.summary) {
         error.summary = 'The summary of the recipe is required';
     } else if (input.summary.length < 10 || input.summary.length > 500) {
-        error.summary = 'The tittle must have between 30 and 500 characters';
+        error.summary = 'The summary must have between 10 and 500 characters';
     }
     if (!input.puntuacion) {
         error.puntuacion = 'The score of the recipe is required';
@@ -33,7 +33,7 @@ export function validate(input) {
     if (!input.pasoAPaso) {
         error.pasoAPaso = 'The instructions of the recipe is required';
     } else if (input.pasoAPaso.length < 10) {
-        error.pasoAPaso = 'The instructions must have more than 30 characters';
+        error.pasoAPaso = 'The instructions must have more than 10 characters';
     }
     if (input.image !== "" && !/^(ftp|http|https):\/\/[^ "]+$/.test(input.image)) {
         error.image = "Image must be a URL";
@@ -73,7 +73,7 @@ export default function RecipeCreate() {
         if (allRecipes.length === 0) {
             dispatch(getRecipes())
         }
-    }, [dispatch]);
+    }, [dispatch, allRecipes.length]);
 
     const recipesName = allRecipes.map(el => el.name)
 
@@ -136,16 +136,16 @@ export default function RecipeCreate() {
     }
 
 
-    function handle_type_btn(e) {
+    function handleButtonType(e) {
         e.preventDefault();
-        console.log("hadle_type_btn tiene..", e.target.value)
+        console.log("handleButtonType tiene..", e.target.value)
         setInput({
             ...input,
             //le seteo los mimos tipos menos lo que tengo en even target value
             diets: input.diets.filter(type => type !== e.target.value)
         });
     }
-    function handle_button_home(e){
+    function handleButtonHome(e){
         e.preventDefault();
         history.push('/home');
     }
@@ -158,34 +158,34 @@ export default function RecipeCreate() {
                 <div className={styles.formLabel}>
                     <label for='name'>Name: </label>
                     <input onChange={handleChange} type="text" name="name" required value={input.name} />
-                    {error.name && <span>{error.name}</span>}
+                    {error.name && <span className={styles.error}>{error.name}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}>
                     <label for='summary'>Summary: </label>
                     <textarea onChange={handleChange} type="text" name="summary" required value={input.summary} />
-                    {error.summary && <span>{error.summary}</span>}
+                    {error.summary && <span className={styles.error}>{error.summary}</span>}
                     <br></br>
                 </div>
-                <div className={styles.formLabel}>
-                    <label for='puntuacion'>Score: </label>
+                <div className={styles.formLabel}> 
+                    <label for='puntuacion'>Health Score: </label>
                     <input onChange={handleChange} type="number" name="puntuacion" value={input.puntuacion} />
-                    {error.puntuacion && <span>{error.puntuacion}</span>}
+                    {error.puntuacion && <span className={styles.error}>{error.puntuacion}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}> 
                     <label for='nivelDeComidaSaludable'>Health Score: </label>
                     <input onChange={handleChange} type="number" name="nivelDeComidaSaludable" value={input.nivelDeComidaSaludable} />
-                    {error.nivelDeComidaSaludable && <span>{error.nivelDeComidaSaludable}</span>}
+                    {error.nivelDeComidaSaludable && <span className={styles.error}>{error.nivelDeComidaSaludable}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}> 
                     <label for='pasoAPaso'>Instructions: </label>
                     <textarea onChange={handleChange} type="text" name="pasoAPaso" value={input.pasoAPaso} />
-                    {error.pasoAPaso && <span>{error.pasoAPaso}</span>}
+                    {error.pasoAPaso && <span className={styles.error}>{error.pasoAPaso}</span>}
                     <br></br>
                 </div>
 
@@ -201,17 +201,17 @@ export default function RecipeCreate() {
                     <div>
                         {
                             input.diets.map(type => (
-                                <button onClick={handle_type_btn} value={type} key={type} className={styles.removeBtn}> Remover {type}  </button>
+                                <button onClick={handleButtonType} value={type} key={type} className={styles.removeBtn}> Remover {type}  </button>
                             ))
                         }
                         <br></br>
                     </div>
-                    {error.diets && <span>{error.diets}</span>}
+                    {error.diets && <span className={styles.error}>{error.diets}</span>}
                 </div>
                 <div className={styles.formLabel}>
                     <label for='image'>Image: </label>
                     <input onChange={handleChange} type="url" placeholder='https://example.com (Optional)' name="image" value={input.image} />
-                    {error.image && <span>{error.image}</span>}
+                    {error.image && <span className={styles.error}>{error.image}</span>}
                     <br></br>
                 </div>
                 <div>
@@ -221,7 +221,7 @@ export default function RecipeCreate() {
                 </div>
             </form>
             <div>
-            <button onClick={handle_button_home} className={styles.btn}>Home</button>
+            <button onClick={handleButtonHome} className={styles.btn}>Home</button>
             </div>
             <br></br>
         </div>

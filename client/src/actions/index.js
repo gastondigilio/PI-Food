@@ -14,8 +14,6 @@ export function getRecipesName(name) {
     return async function (dispatch) {
         try {
             let recipes = await axios.get('http://localhost:3001/recipes?name=' + name)
-            if(recipes.length === 0){
-            }
             return dispatch({
                 type: 'GET_RECIPES_NAME',
                 payload: recipes.data
@@ -30,6 +28,7 @@ export const getDiets = () => {
     return async (dispatch) => {
         try{
             const {data} = await axios.get('http://localhost:3001/types')
+            console.log(data, "get diets")
             return dispatch({
                 type : 'GET_DIETS',
                 payload : data
@@ -57,7 +56,7 @@ export const getDetail = (id) => {
                 payload: data
             })
         } catch (err) {
-            console.error(err);
+            alert('The ID you are looking for was not found');
         }
     }
 }
@@ -76,22 +75,6 @@ export const filterByDiet = (payload) => {
         payload
     }
 }
-
-// export function filterRecipesByType(filter) {
-//     return async function (dispatch) {
-//         try {
-//             let recipes = await axios.get(`http://localhost:3001/api/recipes?filter=${filter}`)
-//             return dispatch({
-//                 type: 'FILTER_RECIPES_BY_TYPE',
-//                 payload: recipes.data
-//             })
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-// }
-
-
 
 export const filterSortByName = (payload) => {
     return {

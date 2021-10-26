@@ -15,13 +15,13 @@ const getApiInfo = async () => {
 
     const instructionsmaps2 = instructionsmaps1[0].instructions.steps.map(e => {
         return {
-            passos: e.step
+            paso: e.step
         }
     })
 
     var x = instructionsmaps2.map(e => {
         return {
-            pasos: e.passos
+            pasos: e.paso
         }
 
     })

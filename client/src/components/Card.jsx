@@ -1,9 +1,8 @@
 import React from "react";
-import { mayusculas } from './index.js'
 import styles from "../styles/card.module.css";
 
 
-export default function Card({ name, image, diets, id, types }) {
+export default function Card({ name, image, diets, types }) {
 
 
 
@@ -13,7 +12,7 @@ export default function Card({ name, image, diets, id, types }) {
                 <img src={image} alt={"no Se encontro la imagen"} />
             </div>
             <div className={styles.content}>
-                <label className={styles.cardTitle}>{mayusculas(name)}</label>
+                <label className={styles.cardTitle}>{name}</label>
                 <div className={styles.infoCard}> 
                 <h4 className={styles.diets}>Diet type</h4>
                 <div className={styles.infoDiets}>
