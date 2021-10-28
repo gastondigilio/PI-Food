@@ -44,33 +44,21 @@ function rootReducer(state = initialState, action) {
 
         case 'FILTER_BY_DIETS':
             let filDiets = state.allRecipes;
-            console.log(filDiets, "antes")
-            filDiets = filDiets.filter((d) => d.diets.includes(action.payload));
-            console.log(filDiets, "whole30")
+            // console.log(filDiets, "antes")
+            filDiets = filDiets.filter((d) => {
+                // console.log(d.diets, "adasd")
+                if(d.diets.includes(action.payload)){
+                    console.log(d, "prueba")
+                    return d
+                }
+                // d.diets.includes(action.payload)
+            });
+            // console.log(filDiets, "whole30")
             return {
                 ...state,
                 recipes: action.payload === "all" ? state.allRecipes : filDiets,
             };
 
-
-            
-
-        // case 'FILTER_BY_DIETS':
-
-        //     const filDiets = state.allRecipes;
-        //     const dietsFiltered = action.payload === 'all' ? filDiets : filDiets.filter(e => {
-        //         if(typeof(e.diets) === 'string') return e.diets.includes(action.payload);
-        //         if(Array.isArray(e.diets)){
-        //             let temps = e.diets.map(e => e.name);
-        //             return temps.includes(action.payload);
-        //         }
-        //     // console.log(allRecipes, 'all recipes reducers')
-        //         return true;
-        //     });
-        //     return{
-        //         ...state,
-        //         recipes: dietsFiltered
-        //     }
 
 
         case 'SORT_BY_NAME':

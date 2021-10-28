@@ -23,8 +23,8 @@ export default function Home() {
 
 
 
-    const [/*orden*/, setOrden] = useState('');
-    console.log(allRecipes)
+    const [orden, setOrden] = useState('');
+    // console.log(allRecipes)
 
     const recipesPerPage = 9;
 
@@ -36,6 +36,7 @@ export default function Home() {
     const recetasActuales = allRecipes.slice(indexFirstRecipe, indexLastRecipe);
     // console.log(recetasActuales)
 
+    //PAGINATION
 
     const pageNumbers = [];
 
@@ -43,8 +44,6 @@ export default function Home() {
         pageNumbers.push(i);
     }
     console.log(pageNumbers, "buenass")
-
-
 
     function nextPage() {
         if(currentPage === pageNumbers.length){
@@ -57,8 +56,11 @@ export default function Home() {
     console.log(currentPage, "holasdasd")
 
     function previousPage() {
-        if (currentPage > 0) {
-            setCurrentPage(currentPage + 1)
+        if(currentPage === 1){
+            setCurrentPage(pageNumbers.length)
+            console.log("entro al console")
+        }else{
+            setCurrentPage(currentPage -1)
         }
     }
 
@@ -99,7 +101,7 @@ export default function Home() {
                             </Link>
                         </li>
                         <li className={styles.elements}>
-                        <select on onChange={handleSortByName}>
+                        <select onChange={handleSortByName}>
                             <option value='default' className={styles.allElements} hidden>Sort recipes by name</option>
                             <option value='asc'>A-Z</option>
                             <option value='desc'>Z-A</option>
@@ -117,7 +119,7 @@ export default function Home() {
                         <select onChange={(e) => handleDiet(e)}>
                             <option value='all'>All recipes</option>
                             {
-                            allDiets?.map(d => <option key={d.id} value={d.name}>{d.name}</option>)
+                            allDiets?.map(d => <option key={d.name} >{d.name}</option>)
                             }
                         </select>
                     </li>
@@ -140,15 +142,17 @@ export default function Home() {
                <div className={styles.container}>
                 {recetasActuales?.map(el => {
                     return (
-                        <div className={styles.cardHome}>
+                        <div className={styles.cardHome} key={el.id}>
                             <Link to={'/detail/' + el.id} className={styles.cardText}>
-                                <Card name={el.name} image={el.image} id={el.id} diets={el.diets} types={el.dishTypes} key={el.id} />
+                                <Card name={el.name} image={el.image} id={el.id} diets={el.diets} types={el.dishTypes} key={"127"} />
                             </Link>
                         </div>
                     )
                 })
                 }
                 </div>
+
+                 {/* el key es un identificador propio de redux para no se genere lio */}
 
                 <div className={styles.btn}>
                 <button onClick={previousPage} className={styles.previous}>Previous page</button>

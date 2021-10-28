@@ -53,11 +53,16 @@ router.get('/types', async (req, res) => {
     const dietApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
     );
     const diet = dietApi.data.results.map((el) => el.diets);
+    // console.log(diet, "asdasd")
     const dietFlat = diet.flat();
+    // console.log(dietFlat, "probando")
 
     const dietsFiltered = dietFlat.filter((d, index) => {
       return dietFlat.indexOf(d) === index
     })
+    // console.log(dietsFiltered, "Prueba2")
+
+    
 
     await dietsFiltered.forEach((d) =>
       Diet.findOrCreate({
@@ -70,6 +75,22 @@ router.get('/types', async (req, res) => {
     res.json(allDiet);
   }
 });
+
+router.post('/diets', async (req, res, next) => {
+ try{
+  let {
+    name
+  } = req.body;
+
+  let newDiet = await Diet.create({name})
+  
+  res.status(200).send("The diet was created")
+ } 
+  catch (err) {
+    next(err);
+  }
+  
+})
 
 router.post('/recipes', async (req, res) => {
   let {
@@ -102,7 +123,7 @@ router.post('/recipes', async (req, res) => {
     console.log(diets, "asdasdasdasd")
 
 
-    recipeCreated.addDiet(dietDb)
+    await recipeCreated.addDiet(dietDb)
     res.status(200).send('Receta creada con éxitos')
   } else {
     res.status(404).send("error")

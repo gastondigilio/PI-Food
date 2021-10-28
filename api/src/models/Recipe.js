@@ -16,26 +16,21 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      // allowNull: true,
     },
     summary: {
       type: DataTypes.STRING,
     },
     puntuacion: {
       type: DataTypes.INTEGER,
-      allowNull: true
     },
     nivelDeComidaSaludable: {
       type: DataTypes.INTEGER,
-      allowNull: true
     },
     pasoAPaso: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
     createdInDb: {
       type: DataTypes.BOOLEAN, // se crea para facilitar la busqueda en la base de datos cuando yo creo un plato de comidas
-      allowNull: false,
       defaultValue: true
     }
   });

@@ -4,3 +4,5 @@ import thunk from "redux-thunk";
 import rootReducer from '../reducers/index.js';
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+
+//cuando crea el store estoy creando el estado de redux 

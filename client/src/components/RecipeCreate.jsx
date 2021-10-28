@@ -156,41 +156,41 @@ export default function RecipeCreate() {
                 (e)} className={styles.mainForm}>
                 <h1 className={styles.mainTitle}>Create a New Recipe</h1>
                 <div className={styles.formLabel}>
-                    <label for='name'>Name: </label>
+                    <label><strong>Name: </strong></label>
                     <input onChange={handleChange} type="text" name="name" required value={input.name} />
                     {error.name && <span className={styles.error}>{error.name}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}>
-                    <label for='summary'>Summary: </label>
+                    <label><strong>Summary: </strong> </label>
                     <textarea onChange={handleChange} type="text" name="summary" required value={input.summary} />
                     {error.summary && <span className={styles.error}>{error.summary}</span>}
                     <br></br>
                 </div>
                 <div className={styles.formLabel}> 
-                    <label for='puntuacion'> Score: </label>
+                    <label> <strong>Score: </strong></label>
                     <input onChange={handleChange} type="number" name="puntuacion" value={input.puntuacion} />
                     {error.puntuacion && <span className={styles.error}>{error.puntuacion}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}> 
-                    <label for='nivelDeComidaSaludable'>Health Score: </label>
+                    <label ><strong>Health Score: </strong></label>
                     <input onChange={handleChange} type="number" name="nivelDeComidaSaludable" value={input.nivelDeComidaSaludable} />
                     {error.nivelDeComidaSaludable && <span className={styles.error}>{error.nivelDeComidaSaludable}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}> 
-                    <label for='pasoAPaso'>Instructions: </label>
+                    <label ><strong>Instructions:</strong> </label>
                     <textarea onChange={handleChange} type="text" name="pasoAPaso" value={input.pasoAPaso} />
                     {error.pasoAPaso && <span className={styles.error}>{error.pasoAPaso}</span>}
                     <br></br>
                 </div>
 
                 <div className={styles.formLabel}>
-                    <label>Diets: </label>
+                    <label> <strong>Diets: </strong></label>
                     <select onChange={handleSelect} >
                         {
                             allDiets && allDiets.map(el => (
@@ -209,7 +209,7 @@ export default function RecipeCreate() {
                     {error.diets && <span className={styles.error}>{error.diets}</span>}
                 </div>
                 <div className={styles.formLabel}>
-                    <label for='image'>Image: </label>
+                    <label> <strong>Image:  </strong></label>
                     <input onChange={handleChange} type="url" placeholder='https://example.com (Optional)' name="image" value={input.image} />
                     {error.image && <span className={styles.error}>{error.image}</span>}
                     <br></br>
