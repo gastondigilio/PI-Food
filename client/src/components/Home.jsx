@@ -70,6 +70,7 @@ export default function Home() {
     }
 
     function handleDiet(e) {
+        e.preventDefault();
         dispatch(filterByDiet(e.target.value))
     }
 
