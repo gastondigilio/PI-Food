@@ -1,5 +1,5 @@
 const {getApiInfo} = require('./getApiInfo');
-const {getDbInfo} = require('./getDBInfo');
+const {getDbInfo} = require('./getDbInfo');
 
 
 const getAllRecipes = async () =>{
