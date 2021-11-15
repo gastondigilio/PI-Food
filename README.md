@@ -6,13 +6,51 @@
 </p>
 
 
-With this App you will be able to search for the recipes that you always wanted to make.
-Be a professional cook with these recipes.
+Project objectives
+Build an App using React, Redux, Node y Sequelize.
+Conect concepts learned in the bootcamp.
+Learn best practices.
+Learn how to use GIT and the GIT Workflow.
+Learn testing.
 
 # Instalation::wrench:
-📝 Do a npm install to view the application.
+In client and api
 
-# Technologies used: :computer:
+```shell
+npm install
+```
+
+Then
+
+```shell
+npm start
+```
+
+In api create a file called .env with this form:
+
+DB_USER=postgressUser
+DB_PASSWORD=postgressPassword
+DB_HOST=localhost
+
+Replace postgressUser and postgressPassword for your own credentials to connect to postgress. This file will be ignored in the upload to github, since it contains sensible information(credentials)
+
+Aditional to that you will need to create from psql a database called food using command create database food;
+
+---
+
+### API
+
+For this project we consumed the [Spoonacular API](https://spoonacular.com/food-api/). The API Key is exported in a .env.
+
+---
+
+### Demo
+![image](https://user-images.githubusercontent.com/83461660/141841388-22695369-7173-4f35-8e5e-b14ecff476fb.png)
+![image](https://user-images.githubusercontent.com/83461660/141841462-1fad333d-b65e-4958-bf3d-5c083716e788.png)
+![image](https://user-images.githubusercontent.com/83461660/141841541-e2a5b512-d821-48c5-96fe-12ec9e381d85.png)
+![image](https://user-images.githubusercontent.com/83461660/141841572-33191382-9942-4d65-8372-75a9a38398c8.png)
+
+---
 
 Javascript.
 
@@ -29,13 +67,3 @@ Redux.
 Express.
 
 Sequelize.
-
-
-[![ExpressJS](https://github.com/MarioTerron/logo-images/blob/master/logos/expressjs.png)](http://expressjs.com///)
-![image](https://user-images.githubusercontent.com/74310843/119369286-628f4f80-bc8a-11eb-8075-6e60ac46d531.png)
-![image](https://user-images.githubusercontent.com/74310843/119369139-383d9200-bc8a-11eb-9b88-64f31ccb250c.png)
-![image](https://user-images.githubusercontent.com/74310843/119369156-3d9adc80-bc8a-11eb-9a37-7fb6aba9af37.png)
-![image](https://user-images.githubusercontent.com/74310843/119369186-44c1ea80-bc8a-11eb-8db0-73ca8560125e.png)
-![image](https://user-images.githubusercontent.com/74310843/119369243-54413380-bc8a-11eb-9855-3c5c93013bbd.png)
-![image](https://user-images.githubusercontent.com/74310843/119370952-48ef0780-bc8c-11eb-9eab-e3722d828437.png)
-
