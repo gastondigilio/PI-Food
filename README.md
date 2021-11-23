@@ -49,7 +49,6 @@ For this project we consumed the [Spoonacular API](https://spoonacular.com/food-
 ![image](https://user-images.githubusercontent.com/83461660/141841462-1fad333d-b65e-4958-bf3d-5c083716e788.png)
 ![image](https://user-images.githubusercontent.com/83461660/141841541-e2a5b512-d821-48c5-96fe-12ec9e381d85.png)
 ![image](https://user-images.githubusercontent.com/83461660/141841572-33191382-9942-4d65-8372-75a9a38398c8.png)
-![image](https://user-images.githubusercontent.com/83461660/143119663-0c0b2bfe-03b7-40a5-9762-31d539857c6f.png)
 
 ---
 
