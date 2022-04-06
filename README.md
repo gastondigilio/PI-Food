@@ -7,7 +7,7 @@
 
 
 Project objectives
-Build an App using React, Redux, Node y Sequelize.
+Build an App using React, Redux, Node and Sequelize.
 Conect concepts learned in the bootcamp.
 Learn best practices.
 Learn how to use GIT and the GIT Workflow.
